@@ -1,0 +1,28 @@
+{
+  "name": "svczz-watchlist",
+  "displayName": "SVCZZ Watchlist",
+  "version": "1.0.0",
+  "description": "SVCZZ's MCP server for movies and series: find something from a description, see where it streams in your country, and, once you connect your SVCZZ account, read and update your watch list, lists and progress. Plus skills that build on it: what to watch tonight, catch up on your shows, picks from what you liked, a weekly what's new, a year in review, a movie night planner, and importing or tidying your lists.",
+  "author": {
+    "name": "Lipi Technology",
+    "email": "support@lipi.com.np",
+    "url": "https://svczz.com"
+  },
+  "homepage": "https://svczz.com/ai",
+  "repository": "https://github.com/LipiTechnology/svczz-watchlist",
+  "keywords": [
+    "watchlist",
+    "movies",
+    "tv-shows",
+    "tv-tracker",
+    "streaming",
+    "recommendations",
+    "what-to-watch",
+    "mcp"
+  ],
+  "icon": "./assets/logo.png",
+  "documentationUrl": "https://svczz.com/ai",
+  "supportUrl": "https://svczz.com/support",
+  "privacyPolicyUrl": "https://svczz.com/privacy",
+  "termsOfServiceUrl": "https://svczz.com/terms"
+}

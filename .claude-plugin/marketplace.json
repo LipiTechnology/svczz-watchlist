@@ -1,0 +1,17 @@
+{
+  "name": "svczz",
+  "description": "SVCZZ for Claude Code: movies and series, where they stream, and your watch list, through SVCZZ's MCP server.",
+  "owner": {
+    "name": "Lipi Technology",
+    "email": "support@lipi.com.np",
+    "url": "https://svczz.com"
+  },
+  "plugins": [
+    {
+      "name": "svczz-watchlist",
+      "source": "./",
+      "description": "Find what to watch, see where it streams, and keep your SVCZZ watch list, lists and episode progress up to date.",
+      "category": "entertainment"
+    }
+  ]
+}
