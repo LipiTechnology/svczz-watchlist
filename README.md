@@ -120,6 +120,10 @@ and the [MCP documentation](https://svczz.com/ai#privacy).
 Questions: [support@lipi.com.np](mailto:support@lipi.com.np). SVCZZ is run by
 Lipi Technology.
 
+## License
+
+MIT, see [LICENSE](LICENSE). The Lipi and SVCZZ names and logos are trademarks of Lipi Technology and are not covered by the license.
+
 ## For maintainers
 
 | Path | What |
