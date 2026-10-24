@@ -1,0 +1,104 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "svczz",
+  "version": "1.0.0",
+  "description": "Find movies and series, see where they stream, and keep your SVCZZ watch list and episode progress up to date.",
+  "author": {
+    "name": "Lipi Technology",
+    "email": "support@lipi.com.np",
+    "url": "https://svczz.com"
+  },
+  "homepage": "https://svczz.com/ai",
+  "keywords": [
+    "movies",
+    "tv-shows",
+    "watchlist",
+    "streaming",
+    "recommendations"
+  ],
+  "extensions": {
+    "com.openai": {
+      "interface": {
+        "displayName": "SVCZZ",
+        "shortDescription": "Find what to watch, track it",
+        "longDescription": "SVCZZ helps you find movies and series and keep track of what you watch. Describe what you're in the mood for and get matching titles with posters, ratings and links. See where each one streams, rents or sells in your country, and browse trending titles, collections, upcoming releases, cast and episode guides. Searching and browsing need no account. Connect your SVCZZ account (svczz.com) to see your watch list, lists, progress, calendar and stats, get picks based on what you rated and watched, see what friends who share their activity are watching, and update your library by saying so: save a title, rate it, mark episodes watched, or build a list for movie night. You choose what ChatGPT may do when you connect: see your library only, or also change it. Limitations: SVCZZ does not play video or sell tickets, and it only knows what you have recorded in SVCZZ. It cannot delete titles from your watch list, delete lists, see other people's private lists, or change your password or account. You can disconnect at any time in SVCZZ under Settings, Connected apps.",
+        "developerName": "Lipi Technology",
+        "category": "Entertainment",
+        "capabilities": [
+          "Find titles from a description",
+          "Where to watch in your country",
+          "Trending, upcoming and new on streaming",
+          "Cast, seasons and episode guides",
+          "Your watch list, lists, progress and stats",
+          "Picks from what you rated and watched",
+          "Save, rate and mark watched (if you allow changes)"
+        ],
+        "websiteURL": "https://svczz.com",
+        "supportURL": "https://svczz.com/support",
+        "privacyPolicyURL": "https://svczz.com/privacy",
+        "termsOfServiceURL": "https://svczz.com/terms",
+        "defaultPrompt": [
+          "Find a feel-good 90s comedy I can stream on Netflix in the US.",
+          "What's my next watch tonight? I have about two hours.",
+          "I'm up to season 2 episode 4 of The Bear."
+        ],
+        "logo": "./assets/logo.png",
+        "composerIcon": "./assets/logo.png"
+      },
+      "review": {
+        "test_cases": {
+          "positive": [
+            {
+              "description": "Describe-and-filter discovery with a streaming service",
+              "prompt": "Find a feel-good 90s comedy I can stream on Netflix in the US.",
+              "tools_triggered": "discover",
+              "expected_behavior": "Returns comedies released in the 1990s that stream on Netflix in the US, each with poster, year, rating and an SVCZZ link. Needs no account."
+            },
+            {
+              "description": "Watch list by status",
+              "prompt": "What's on my watch list as planning?",
+              "tools_triggered": "my_library",
+              "expected_behavior": "Lists the review account's titles with status planning, with links. Asks the user to connect SVCZZ first if not connected."
+            },
+            {
+              "description": "Episode progress",
+              "prompt": "Mark Breaking Bad watched up to season 1 episode 3.",
+              "tools_triggered": "search_titles, set_progress",
+              "expected_behavior": "Finds Breaking Bad, marks episodes 1 to 3 of season 1 watched, and confirms the new progress. Needs the Change your library permission."
+            },
+            {
+              "description": "Create a list and add titles",
+              "prompt": "Make a list called Movie night with Heat and Ronin.",
+              "tools_triggered": "my_lists, create_list, search_titles, add_to_list",
+              "expected_behavior": "Creates a private list named Movie night and adds Heat (1995) and Ronin (1998) to it, then links the list."
+            },
+            {
+              "description": "Friends' activity",
+              "prompt": "What did my friends watch this week?",
+              "tools_triggered": "friends_activity",
+              "expected_behavior": "Shows recent saves, ratings, starts and finishes from friends who share their activity. The review account has one such friend."
+            }
+          ],
+          "negative": [
+            {
+              "description": "Ticketing is out of scope: SVCZZ has no tool for it, so ChatGPT should say it can't book tickets and may offer where to watch instead.",
+              "prompt": "Book two cinema tickets for Dune tonight."
+            },
+            {
+              "description": "Playback is not supported: SVCZZ does not stream video. ChatGPT should say so and may link the title's streaming services.",
+              "prompt": "Play the movie Inception for me."
+            },
+            {
+              "description": "Other users' private data is never available: the tools only act as the signed-in user, so ChatGPT should refuse.",
+              "prompt": "Show me another user's private list."
+            }
+          ]
+        },
+        "commerce": false
+      },
+      "publication": {
+        "release_notes": "First release: search and browse movies and series with no account, and read or update your SVCZZ watch list once you connect."
+      }
+    }
+  }
+}
